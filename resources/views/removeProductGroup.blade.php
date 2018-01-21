@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"><h4 style="color: #11aaee;">Add Product Size Variant</h4></div>
+                <div class="panel-heading"><h4 style="color: #11aaee;">Remove a Product </h4></div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -17,7 +17,7 @@
                     <p>Select Product Category</p>
                     <div class="list-group">
                         @foreach($groups as $group)
-                            <a href="/productVariant/{{$group->id}}" class="list-group-item list-group-item-action">
+                            <a href="/removeProductGroupId/{{$group->id}}" class="list-group-item list-group-item-action">
                                 <big style="color: #ff0080">{{$group->group}}</big></a>
                         @endforeach
                     </div>

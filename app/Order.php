@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     //
-    protected $fillable = ['user_id', 'total', 'status'];
-    public function user()
+    protected $fillable = ['buyer_id', 'total', 'status'];
+    public function buyer()
     {
-    	return $this->belongsTo(User::class); 
+    	return $this->belongsTo(Buyer::class); 
     }
 
-    
+    public function item(){
+            return $this->hasMany(Item::class);
+    }    
 }

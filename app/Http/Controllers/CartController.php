@@ -11,7 +11,8 @@ use App\Group;
 use App\Item;
 use App\Product;
 use App\Size;
-use App\User;
+use App\Order;
+use App\Buyer;
 use Input;
 
 
@@ -294,7 +295,7 @@ class CartController extends Controller
 			$this->validate($request, [
 	            'firstname' => 'required|min:3|max:35',
 	            'lastname' => 'required|min:3|max:35',
-	            'email' => 'required|email|unique:users',
+	            'email' => 'required',
 	            'phone' => 'required|numeric',
 	            'g-recaptcha-response' => 'required|captcha'
 	        ],
@@ -308,18 +309,18 @@ class CartController extends Controller
 	            'g-recaptcha-response' => 'Are you a Robot',        
 	        ]);
 
-			$user = new User;
-			$user->name = $request->firstname.' '.$request->lastname;
-			$user->email = $request->email;
-			$user->phone = $request->phone;
-			$user->role = '1';
-			$user->status = 'no';
-			$user->save();
+			$buyer = new Buyer;
+			$buyer->name = $request->firstname.' '.$request->lastname;
+			$buyer->email = $request->email;
+			$buyer->phone = $request->phone;
+			$buyer->role = '1';
+			$buyer->status = 'no';
+			$buyer->save();
 
-			$userId = User::orderBy('id', 'desc')->first();
+			$buyerId = buyer::orderBy('id', 'desc')->first();
 
 			$order = new Order;
-			$order->user_id = $userId->id;
+			$order->buyer_id = $buyerId->id;
 			$order->sub_total = Session::get('subTotal');
 			$order->vat = Session::get('tax');
 			$order->total = Session::get('total');
@@ -328,22 +329,24 @@ class CartController extends Controller
 
 			$orderId = Order::orderBy('id', 'desc')->first();
 
-    		$array = Session::get('products');
+    		$array = Session::get('items');
+
 	    	foreach ($array as $key => $value) {
 
-		        if($request->size == $value['product_id']){
-		        	$item = new Item;
-		        	$item->order_id = $orderId->id;
-		        	$item->size_id = $userId->id;
-		        	$item->quantity = $value['quantity'];
-		        	$item->min_total = $value['min_total'];
-		        	$item->save();
-		        }
-		        
+	        	$item = new Item;
+	        	$item->order_id = $orderId->id;
+	        	$item->size_id = $value['size_id'];
+	        	$item->quantity = $value['quantity'];
+	        	$item->min_total = $value['min_total'];
+	        	$item->save();
+
 	      	}
-	      	
-	      	SWAL::message('Cart Error', 'The product has already been added to cart.','warning',['timer'=>3000]);
-	        return Session::all();
+	      	Session::forget('products');
+			Session::forget('items');
+			Session::put('count', 0);
+
+	      	SWAL::message('Order Submitted', 'Your order has been submitted successfully, we will contact you.','success',['timer'=>4000]);
+	        return redirect('/');
     	}
 	}
 

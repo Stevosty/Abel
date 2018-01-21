@@ -7,6 +7,9 @@ use App\Group;
 use App\Slider;
 use App\Product;
 use App\Size;
+use App\Order;
+use App\Item;
+use App\Buyer;
 use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Storage;
@@ -151,21 +154,69 @@ class AdminController extends Controller
 
     public function removeProduct()
     {
-    	
+    	$groups = Group::all();
+
+        return view('removeProductGroup', compact('groups'));
     }
 
-    public function removeProductId()
+    public function removeProductGroupId(Request $request)
     {
-    	
+
+        $products = Product::where([['group_id','=',$request->id],['status','=','no']])->get();
+        return view('removeProductList', compact('products'));
     }
 
-    public function removeProductVariant()
+    public function removeProductId(Request $request)
     {
-    	
+    	Product::where('id', $request->id)->update(['status' => 'yes']);
+        SWAL::message('Product Removed', 'The Product has been removed successfully.','success',['timer'=>3000]);
+     
+        return back();
     }
 
-    public function removeProductVariantId()
+    // public function removeProductVariant()
+    // {
+    // 	$groups = Group::all();
+
+    //     return view('removeProductVariantGroup', compact('groups'));
+    // }
+
+    // public function removeProductVariantGroupId()
+    // {
+    // 	$products = Size::where([['group_id','=',$request->id],['status','=','no']])->get();
+    //     return view('removeProductList', compact('products'));
+    // }
+
+    //orders
+    public function viewOrders()
     {
-    	
+        $orders = Order::with('buyer', 'item.size.product')->where('status','=','no')->orderBy('id', 'desc')->get();
+
+        return view('viewOrders', compact('orders'));
+        //return $orders;
+    }
+
+    public function completeOrder(Request $request)
+    {
+        Order::where('id', $request->id)->update(['status' => 'yes']);
+        SWAL::message('Order Marked as Complete', 'The Product has been archived successfully.','success',['timer'=>3000]);
+     
+        return redirect('/viewOrders');
+    }
+
+    public function archivedOrders()
+    {
+        $orders = Order::with('buyer', 'item.size.product')->where('status','=','yes')->orderBy('updated_at', 'desc')->get();
+
+        return view('archivedOrders', compact('orders'));
+        //return $orders;
+    }
+
+    public function saveProductEdit(Request $request)
+    {
+        Product::where('id', $request->id)->update(['desc' => $request->desc]);
+        SWAL::message('Product Updated', 'The Product description has been updated successfully.','success',['timer'=>3000]);
+     
+        return back();
     }
 }

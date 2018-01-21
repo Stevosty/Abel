@@ -76,9 +76,9 @@
 
                                 <ul class="dropdown-menu">
                                      <li><a href="/addProduct">Add a Product</a></li>
-                                     <li><a href="/removeProduct">Remove a Product</a></li>
+                                     <li><a href="/removeProduct">Edit/Remove a Product</a></li>
                                      <li><a href="/groupVariant">Add Product Size Variant</a></li>
-                                     <li><a href="/removeProductVariant">Remove Product Size Variant</a></li>
+                                     {{-- <li><a href="/removeProductVariant">Remove Product Size Variant</a></li> --}}
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -87,7 +87,8 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-
+                                    <li><a href="/viewOrders">View Orders</a></li>
+                                    <li><a href="/archivedOrders">View Archived Orders</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

@@ -17,7 +17,7 @@ class PageController extends Controller
     	//latest products
     	//$products = Product::where(['type', '=', 'latest'],['status', ''])->get();//shud be home
 
-    	$products = Product::with('size', 'group')->where('type','=','latest')->orderBy('id','desc')->limit(8)->get();
+    	$products = Product::with('size', 'group')->where([['type','=','latest'],['status','=','no']])->orderBy('id','desc')->limit(8)->get();
 
     	//return $products;
 
@@ -32,12 +32,92 @@ class PageController extends Controller
         $others = Product::with('size', 'group')
         ->where('group_id','=',$product->group_id)
         ->where('id','!=',$request->id)
+        ->where('status','=','no')
         ->orderBy('product','desc')
         ->limit(3)->get();
 
         //return $others;
 
         return view('productPage', compact('product', 'others'));
+
+    }
+
+    public function medicalNutritionPage()
+    {
+
+        $other = 1;
+        $products = Product::with('size', 'group')
+        ->where('group_id','=', 1)
+        ->where('status','=','no')
+        ->orderBy('product','desc')
+        ->get();
+
+        //return $products;
+
+        return view('page', compact('products', 'other'));
+
+    }
+
+    public function infectionControlPage()
+    {
+
+        $other = 2;
+        $products = Product::with('size', 'group')
+        ->where('group_id','=', 2)
+        ->where('status','=','no')
+        ->orderBy('product','desc')
+        ->get();
+
+        //return $products;
+
+        return view('page', compact('products', 'other'));
+
+    }
+
+    public function skinCarePage()
+    {
+
+        $other = 3;
+        $products = Product::with('size', 'group')
+        ->where('group_id','=', 3)
+        ->where('status','=','no')
+        ->orderBy('product','desc')
+        ->get();
+
+        //return $products;
+
+        return view('page', compact('products', 'other'));
+
+    }
+
+    public function dialysisPage()
+    {
+
+        $other = 4;
+        $products = Product::with('size', 'group')
+        ->where('group_id','=', 4)
+        ->where('status','=','no')
+        ->orderBy('product','desc')
+        ->get();
+
+        //return $products;
+
+        return view('page', compact('products', 'other'));
+
+    }
+    public function pharmacyPage()
+    {
+
+        $other = 5;
+        $products = Product::with('size', 'group')
+        ->where('group_id','=', 5)
+        ->where('status','=','no')
+        ->orderBy('product','desc')
+        ->get();
+
+        //return $products;
+
+        return view('page', compact('products', 'other'));
 
     }
 }
