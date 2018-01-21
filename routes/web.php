@@ -50,3 +50,12 @@ Route::get('/product/{id}', 'PageController@productPage');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/sparkpost', function () {
+  Mail::send('test', [], function ($message) {
+    $message
+      ->from('info@crysrockeng.com', 'Admin')
+      ->to('munene02@gmail.com', 'munesh')
+      ->subject('From SparkPost with ❤');
+  });
+});
