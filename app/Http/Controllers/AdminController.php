@@ -162,7 +162,7 @@ class AdminController extends Controller
 
         SWAL::message('Product Added', 'The Product has been added successfully.','success',['timer'=>3000]);
      
-        return redirect('/groupVariant');
+        return back();
 
     }
 
