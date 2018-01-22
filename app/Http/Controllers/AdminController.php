@@ -141,7 +141,7 @@ class AdminController extends Controller
         // return $products;
         // // return $request->id;
 
-        return view('ProductVariantList', compact('products'));
+        return view('productVariantList', compact('products'));
     }
 
     public function addProductVariant(Request $request)
