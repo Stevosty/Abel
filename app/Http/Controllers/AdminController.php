@@ -90,7 +90,12 @@ class AdminController extends Controller
     	$extension = $image->extension();
     	$time = Carbon::now()->timestamp;
     	$name = $time.'.'.$extension;
-    	$upload = $image->storeAs('public/medical', $name);
+        if($request->group==1){$upload = $image->storeAs('public/medical', $name);}
+        if($request->group==2){$upload = $image->storeAs('public/infection', $name);}
+        if($request->group==3){$upload = $image->storeAs('public/skin', $name);}
+        if($request->group==4){$upload = $image->storeAs('public/dialysis', $name);}
+        if($request->group==5){$upload = $image->storeAs('public/pharmacy', $name);}
+    	
     	$url = Storage::url($upload);
 
     	$product = new Product;
