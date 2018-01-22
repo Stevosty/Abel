@@ -58,7 +58,7 @@
 
                                                     <div class="image_wrapper">
                                                         <a href="/product/{{$product->id}}">
-                                                            <div class="mask"></div><img width="700" height="700" src="{{ asset($product->image) }}" class="scale-with-grid wp-post-image" alt="{{$product->product}}" />
+                                                            <img width="700" height="700" src="{{ asset($product->image) }}" class="scale-with-grid wp-post-image" alt="{{$product->product}}" />
                                                         </a>
                                                         <div class="image_links">
                                                                 
