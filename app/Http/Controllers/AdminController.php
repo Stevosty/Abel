@@ -133,7 +133,7 @@ class AdminController extends Controller
         $products = Product::with('size', 'group')
         ->where('group_id','=',$request->id)
         ->where('status','=','no')
-        ->orderBy('product','desc')
+        ->orderBy('id','desc')
         ->get();
         // Product::with('size', 'group')->where([['group_id','=',$request->id],['status','=','no']])->first();
 
