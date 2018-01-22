@@ -130,13 +130,18 @@ class AdminController extends Controller
 
     public function productVariant(Request $request)
     {
-        $products = Product::with('size', 'group')->where([['group_id','=',$request->id],['status','=','no']])->first();
+        $products = Product::with('size', 'group')
+        ->where('group_id','=',$request->id)
+        ->where('status','=','no')
+        ->orderBy('product','desc')
+        ->get();
+        // Product::with('size', 'group')->where([['group_id','=',$request->id],['status','=','no']])->first();
 
 
         return $products;
-        return $request->id;
+        // return $request->id;
 
-        return view('ProductVariantList', compact('products'));
+        // return view('ProductVariantList', compact('products'));
     }
 
     public function addProductVariant(Request $request)
