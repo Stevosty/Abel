@@ -138,10 +138,10 @@ class AdminController extends Controller
         // Product::with('size', 'group')->where([['group_id','=',$request->id],['status','=','no']])->first();
 
 
-        return $products;
-        // return $request->id;
+        // return $products;
+        // // return $request->id;
 
-        // return view('ProductVariantList', compact('products'));
+        return view('ProductVariantList', compact('products'));
     }
 
     public function addProductVariant(Request $request)
