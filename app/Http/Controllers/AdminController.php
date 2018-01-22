@@ -132,6 +132,7 @@ class AdminController extends Controller
     {
         $products = Product::with('size', 'group')->where([['group_id','=',$request->id],['status','=','no']])->get();
 
+        return $products;
         //return $request->id;
 
         return view('ProductVariantList', compact('products'));
