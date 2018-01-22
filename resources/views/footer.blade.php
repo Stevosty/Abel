@@ -25,10 +25,10 @@
                       <div class="textwidget">
                           <ul  style="line-height: 28px;">
                               <li>
-                                  <i class="icon-layout" style="color: #4179a0;"></i><a href="#">ABOUT US</a>
+                                  <i class="icon-layout" style="color: #4179a0;"></i><a href="/about">ABOUT US</a>
                               </li>
                               <li>
-                                  <i class="icon-layout" style="color: #4179a0;"></i><a href="#">CONTACTS</a>
+                                  <i class="icon-layout" style="color: #4179a0;"></i><a href="/contact">CONTACTS</a>
                               </li>
                               <li>
                                   <i class="icon-layout" style="color: #4179a0;"></i><a href="/login">LOGIN</a>

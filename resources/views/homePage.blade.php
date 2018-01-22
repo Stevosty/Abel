@@ -78,52 +78,40 @@
 
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                {{-- <div class="section mcb-section" style="padding-top:0px; padding-bottom:0px;">
-                    <div class="section_wrapper mcb-section-inner">
-                        <div class="wrap mcb-wrap one  valign-top clearfix">
+                        <div class="wrap mcb-wrap one  valign-top clearfix" style="padding-top: 30px;">
                             <div class="mcb-wrap-inner">
                                 <div class="column mcb-column one column_column">
-                                    <div class="column_attr align_center" style=" background-image:url(images/home_pharmacy_sep.png); background-repeat:no-repeat; background-position:center bottom;padding:0 0 10px;">
-                                        <h2>Products on Sale</h2>
+                                    <div class="column_attr align_left" style=" background-image:url({{ asset("/images/home_sep_2.png") }}); background-repeat:no-repeat; background-position:left bottom;padding:0 0 10px;">
+                                        <h2>About Prodigy</h2>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="wrap mcb-wrap one valign-top clearfix">
+                        <div class="wrap mcb-wrap one  valign-top clearfix">
                             <div class="mcb-wrap-inner">
-                                
-                                <div class="column_attr">
-                                    <div class="woocommerce columns-4">
-                                        <div class="products_wrapper isotope_wrapper">
-                                            <ul class="products ">
-
-                                                <li class="isotope-item product type-product has-post-thumbnail  shipping-taxable purchasable product-type-simple instock">
-                                                    <div class="image_frame scale-with-grid product-loop-thumb" ontouchstart="this.classList.toggle('hover');">
-                                                        <div class="image_wrapper">
-                                                            <a href="/product/product/{{$product->id}}">
-                                                                <div class="mask"></div><img width="700" height="700" src="images/home_pharmacy_products1-700x700.jpg" class="scale-with-grid wp-post-image" alt="home_pharmacy_products1" />
-                                                            </a>
-                                                            <div class="image_links double">
-                                                                <a rel="nofollow" href="index7fd8.html?add-to-cart=99" data-quantity="1" data-product_id="99" class="add_to_cart_button ajax_add_to_cart product_type_simple"><i class="icon-basket"></i></a><a class="link" href="/product/product/{{$product->id}}"><i class="icon-link"></i></a> </div>
-                                                        </div><a href="/product/product/{{$product->id}}"><span class="product-loading-icon added-cart"></span></a> </div>
-                                                    <div class="desc">
-                                                        <h4><a href="/product/product/{{$product->id}}">Donec arcu risus</a></h4><span class="price"><span class="amount">&#36;3.00</span></span>
-                                                    </div>
-                                                </li>
-                                                
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <div class="column mcb-column one-second column_column">
+                                    <div class="column_attr" >
+                                        <p>
+                                            {!!$info['info']!!}
+                                        </p>
+                                        <hr class="no_line" style="margin: 0 auto 25px;" />
+                                        <a class="button  button_size_2 button_theme button_js" href="/about"><span class="button_label">Learn More</span></a> </div>
                                 </div>
-
+                                <div class="column mcb-column one-second column_image ">
+                                    <div class="image_frame image_item scale-with-grid aligncenter no_border hover-disable">
+                                        <div class="image_wrapper">
+                                                <img class="scale-with-grid" src="{{ asset($info['image']) }}" alt="Prodigy Healthcare" width="780" height="534" />
+                                                
+                                        </div>
+                                        
+                                    </div>
+                                    <br style="clear:both;" /><br><br>
+                                    <p style="font-style: italic;margin-top: 20px">Prodigy Healthcare, Go down C2, Ashray industrial Park, Kampala Road</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
 
                 
                 <div class="section the_content no_content">

@@ -17,7 +17,7 @@ Route::get('/infectionControl', 'PageController@infectionControlPage');
 Route::get('/skinCare', 'PageController@skinCarePage');
 Route::get('/dialysis', 'PageController@dialysisPage');
 Route::get('/pharmacy', 'PageController@pharmacyPage');
-Route::get('/about', 'PageController@avoutPage');
+Route::get('/about', 'PageController@aboutPage');
 Route::get('/contact', 'PageController@contactPage');
 
 Route::get('/cart/{size}/{quantity}', 'CartController@add')->middleware('web');

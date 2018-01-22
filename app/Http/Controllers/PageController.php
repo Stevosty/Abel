@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Slider;
+use App\Content;
 use Session;
 
 class PageController extends Controller
@@ -13,15 +14,13 @@ class PageController extends Controller
     {
     	$slides = Slider::with('group')->where('status', '=', 'no')->get();
 
-    	//return $slides;
-    	//latest products
-    	//$products = Product::where(['type', '=', 'latest'],['status', ''])->get();//shud be home
+    	$info = Content::where('title','=','home')->first();
 
     	$products = Product::with('size', 'group')->where([['type','=','latest'],['status','=','no']])->orderBy('id','desc')->limit(8)->get();
 
-    	//return $products;
+    	//return $info;
 
-    	return view('homePage', compact('slides', 'products'));
+    	return view('homePage', compact('slides', 'products', 'info'));
     	//return $products;
     }
 
@@ -120,4 +119,20 @@ class PageController extends Controller
         return view('page', compact('products', 'other'));
 
     }
+
+    public function aboutPage()
+    {
+        $info = Content::where('title','=','about')->first();
+
+        return view('aboutPage', compact('info'));
+    }
+
+    public function contactPage()
+    {
+        $info = Content::where('title','=','contact')->first();
+
+        return view('contactPage', compact('info'));
+    }
+
+
 }
