@@ -24,7 +24,7 @@
                       @endif
                       <div class="form-group">
                         <label for="Product_image">Product Image: <small>(HINT: 700px X 700px) </small></label>
-                        <input type="file" name="image" id="image" class="form-control" required/>
+                        <input type="file" name="image" id="image" class="form-control" />
                       </div>
 
                       <div class="form-group">
