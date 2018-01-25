@@ -51,6 +51,7 @@
 
                                             <div class="thumbnails columns-3">
                                             @foreach($product->size as $size)
+                                                @if(!empty($size->image))
                                                 <div class="image_frame scale-with-grid" ontouchstart="this.classList.toggle('hover');">
                                                     <div class="image_wrapper">
                                                         <a href="{{ asset($size->image)}}" itemprop="image" class="woocommerce-main-image zoom" title="{{$product->product}} {{ $size->size}}" data-rel="prettyPhoto[product-gallery]">
@@ -58,6 +59,7 @@
                                                         </a>
                                                     </div>
                                                 </div>
+                                                @endif
                                             @endforeach
                                             </div>
                                         </div>
