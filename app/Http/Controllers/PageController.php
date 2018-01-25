@@ -35,7 +35,7 @@ class PageController extends Controller
         ->orderBy('product','desc')
         ->limit(3)->get();
 
-        //return $others;
+        //return $product;
 
         return view('productPage', compact('product', 'others'));
 

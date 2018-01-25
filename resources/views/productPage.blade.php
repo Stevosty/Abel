@@ -48,15 +48,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            {{-- <div class="thumbnails columns-3">
+
+                                            <div class="thumbnails columns-3">
+                                            @foreach($product->size as $size)
                                                 <div class="image_frame scale-with-grid" ontouchstart="this.classList.toggle('hover');">
                                                     <div class="image_wrapper">
-                                                        <a href="" itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto[product-gallery]">
-                                                            <div class="mask"></div><img width="180" height="180" src="" class="attachment-shop_thumbnail size-shop_thumbnail" alt="" />
+                                                        <a href="{{ asset($size->image)}}" itemprop="image" class="woocommerce-main-image zoom" title="{{$product->product}} {{ $size->size}}" data-rel="prettyPhoto[product-gallery]">
+                                                            <div class="mask"></div><img width="180" height="180" src="{{ asset($size->image) }}" class="attachment-shop_thumbnail size-shop_thumbnail" alt="{{$product->product}} {{ $size->size}}" />
                                                         </a>
                                                     </div>
                                                 </div>
-                                            </div> --}}
+                                            @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="column one-second summary entry-summary">

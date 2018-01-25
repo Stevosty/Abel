@@ -22,6 +22,10 @@
                       </div>
 
                       @endif
+                      <div class="form-group">
+                        <label for="Product_image">Product Image: <small>(HINT: 700px X 700px) </small></label>
+                        <input type="file" name="image" id="image" class="form-control" required/>
+                      </div>
 
                       <div class="form-group">
                         <label for="size">Pack Size:</label>
@@ -34,6 +38,7 @@
                       </div>
 
                       <input type="hidden" name="id" value="{{ $product->id }}">
+                      <input type="hidden" name="group_id" value="{{ $product->group_id }}">
 
                       <div class="form-group">
                         <br>

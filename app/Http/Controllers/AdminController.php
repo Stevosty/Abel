@@ -113,6 +113,7 @@ class AdminController extends Controller
 		$size->product_id = $pro->id;
 		$size->size = $request->size;
 		$size->price = $request->price;
+        $size->image = $url;
 		$size->status = "no";
 		$size->save();
 
@@ -153,10 +154,23 @@ class AdminController extends Controller
 
     public function newProductVariant(Request $request)
     {
-    	$size = new Size;
+    	$image = $request->file('image');
+        $extension = $image->extension();
+        $time = Carbon::now()->timestamp;
+        $name = $time.'.'.$extension;
+        if($request->group_id==1){$upload = $image->storeAs('public/medical', $name);}
+        if($request->group_id==2){$upload = $image->storeAs('public/infection', $name);}
+        if($request->group_id==3){$upload = $image->storeAs('public/skin', $name);}
+        if($request->group_id==4){$upload = $image->storeAs('public/dialysis', $name);}
+        if($request->group_id==5){$upload = $image->storeAs('public/pharmacy', $name);}
+        
+        $url = Storage::url($upload);
+
+        $size = new Size;
         $size->product_id = $request->id;
         $size->size = $request->size;
         $size->price = $request->price;
+        $size->image = $url;
         $size->status = "no";
         $size->save();
 
