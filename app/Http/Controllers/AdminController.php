@@ -154,7 +154,8 @@ class AdminController extends Controller
 
     public function newProductVariant(Request $request)
     {
-    	$image = $request->file('image');
+    	if(isset($request->image)){
+            $image = $request->file('image');
         $extension = $image->extension();
         $time = Carbon::now()->timestamp;
         $name = $time.'.'.$extension;
@@ -177,6 +178,20 @@ class AdminController extends Controller
         SWAL::message('Product Added', 'The Product has been added successfully.','success',['timer'=>3000]);
      
         return back();
+        }else{
+
+            $size = new Size;
+            $size->product_id = $request->id;
+            $size->size = $request->size;
+            $size->price = $request->price;
+            $size->status = "no";
+            $size->save();
+
+        SWAL::message('Product Added', 'The Product has been added successfully.','success',['timer'=>3000]);
+     
+        return back();
+        }
+        
 
     }
 
