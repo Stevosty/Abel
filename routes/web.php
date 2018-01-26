@@ -12,11 +12,11 @@
 
 //Pages
 Route::get('/', 'PageController@homePage');
-Route::get('/medicalNutrition', 'PageController@medicalNutritionPage');
-Route::get('/infectionControl', 'PageController@infectionControlPage');
-Route::get('/skinCare', 'PageController@skinCarePage');
-Route::get('/dialysis', 'PageController@dialysisPage');
-Route::get('/pharmacy', 'PageController@pharmacyPage');
+Route::get('/1', 'PageController@medicalNutritionPage');
+Route::get('/2', 'PageController@infectionControlPage');
+Route::get('/3', 'PageController@skinCarePage');
+Route::get('/4', 'PageController@dialysisPage');
+Route::get('/5', 'PageController@pharmacyPage');
 Route::get('/about', 'PageController@aboutPage');
 Route::get('/contact', 'PageController@contactPage');
 

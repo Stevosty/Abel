@@ -13,19 +13,19 @@
                                     <a href="/"><span>Home</span></a>
                                 </li>
                                 <li @php if($page=="medical"){ echo 'class="current_page_item"'; } @endphp >
-                                    <a href="/medicalNutrition"><span>Medical Nutrition</span></a>
+                                    <a href="/1"><span>Medical Nutrition</span></a>
                                 </li>
                                 <li @php if($page=="infection"){ echo 'class="current_page_item"'; } @endphp >
-                                    <a href="/infectionControl"><span>Infection Control</span></a>
+                                    <a href="/2"><span>Infection Control</span></a>
                                 </li>
                                 <li @php if($page=="skin"){ echo 'class="current_page_item"'; } @endphp >
-                                    <a href="/skinCare"><span>Skin Care</span></a>
+                                    <a href="/3"><span>Skin Care</span></a>
                                 </li>
                                 <li @php if($page=="dialysis"){ echo 'class="current_page_item"'; } @endphp >
-                                    <a href="/dialysis"><span>Dialysis</span></a>
+                                    <a href="/4"><span>Dialysis</span></a>
                                 </li>
                                 <li @php if($page=="pharmacy"){ echo 'class="current_page_item"'; } @endphp >
-                                    <a href="/pharmacy"><span>Pharmacy</span></a>
+                                    <a href="/5"><span>Pharmacy</span></a>
                                 </li>
                             
                         </ul>
