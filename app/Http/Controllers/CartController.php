@@ -14,6 +14,7 @@ use App\Size;
 use App\Order;
 use App\Buyer;
 use Input;
+use Snowfire\Beautymail\Beautymail;
 
 
 class CartController extends Controller
@@ -342,12 +343,12 @@ class CartController extends Controller
 
 	      	}
 
-	      	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+	      	$beautymail = app(Beautymail::class);
 		    $beautymail->send('emails.order', [], function($message)
 		    {
 		        $message
 					->from('orders@crysrockeng.com')
-					->to($buyerId->email, $buyerId->name)
+					->to('munene02@gmail.com', 'john doe')
 					->subject('Prodigy Heathcare Order');
 		    });
 
