@@ -86,7 +86,7 @@ Route::get('/test', function()
     $beautymail->send('emails.order', [], function($message)
     {
         $message
-			->from('noreply@prodigyheathcare.com')
+			->from('info@crysrockeng.com')
 			->to('munene02@gmail.com', 'John Smith')
 			->subject('Welcome!');
     });
