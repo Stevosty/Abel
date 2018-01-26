@@ -341,9 +341,19 @@ class CartController extends Controller
 	        	$item->save();
 
 	      	}
-	      	Session::forget('products');
-			Session::forget('items');
-			Session::put('count', 0);
+
+	      	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+		    $beautymail->send('emails.order', [], function($message)
+		    {
+		        $message
+					->from('orders@crysrockeng.com')
+					->to($buyerId->email, $buyerId->name)
+					->subject('Prodigy Heathcare Order');
+		    });
+
+	  //     	Session::forget('products');
+			// Session::forget('items');
+			// Session::put('count', 0);
 
 	      	SWAL::message('Order Submitted', 'Your order has been submitted successfully, we will contact you.','success',['timer'=>4000]);
 	        return redirect('/');
@@ -351,3 +361,4 @@ class CartController extends Controller
 	}
 
 }
+
