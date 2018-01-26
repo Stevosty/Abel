@@ -179,6 +179,7 @@ return [
         Softon\SweetAlert\SweetAlertServiceProvider::class,
         Infinety\Alerts\AlertServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Snowfire\Beautymail\BeautymailServiceProvider::class,
 
     ],
 

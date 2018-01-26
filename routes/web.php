@@ -69,11 +69,26 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/sparkpost', function () {
+Route::get('/sparkpos', function () {
+
   Mail::send('test', [], function ($message) {
     $message
       ->from('info@crysrockeng.com', 'Admin')
       ->to('munene02@gmail.com', 'munesh')
       ->subject('From SparkPost with ❤');
   });
+
+});
+
+Route::get('/test', function()
+{
+	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+    $beautymail->send('emails.order', [], function($message)
+    {
+        $message
+			->from('noreply@prodigyheathcare.com')
+			->to('munene02@gmail.com', 'John Smith')
+			->subject('Welcome!');
+    });
+
 });
