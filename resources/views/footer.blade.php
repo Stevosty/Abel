@@ -10,7 +10,7 @@
                               <div>&copy;
                                   <?php
                                     date_default_timezone_set('Africa/Nairobi');
-                                    $time = date("Y");
+                                    $time = date("y");
                                     echo $time;
                                   ?>
                                    PRODIGY HEALTHCARE 

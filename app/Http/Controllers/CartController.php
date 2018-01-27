@@ -352,9 +352,8 @@ class CartController extends Controller
 					->subject('Prodigy Heathcare Order');
 		    });
 
-	  //     	Session::forget('products');
-			// Session::forget('items');
-			// Session::put('count', 0);
+	      	Session::forget('products');
+			Session::put('count', 0);
 
 	      	SWAL::message('Order Submitted', 'Your order has been submitted successfully, we will contact you.','success',['timer'=>4000]);
 	        return redirect('/');
