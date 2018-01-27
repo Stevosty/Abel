@@ -348,6 +348,7 @@ class CartController extends Controller
 		    $orderNo = 'ODR'.$time.'00'.$orderId->id;
 
 		    Session::put('orderNo', $orderNo);
+		    Session::put('name', $orderId->name);
 
 	      	$beautymail = app(Beautymail::class);
 		    $beautymail->send('emails.order', [], function($message)

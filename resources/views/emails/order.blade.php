@@ -5,13 +5,14 @@
 @section('content')
 
     @include('beautymail::templates.ark.heading', [
-		'heading' => 'Order Details',
-		'level' => 'h1'
+		'heading' => 'Prodigy Healthcare Order',
+		'level' => 'h2'
 	])
 
     @include('beautymail::templates.ark.contentStart')
 
-        <h4 class="secondary"><strong>Order No. {{Session::get('orderNo')}}</strong></h4>
+        <h4 class="secondary"><strong>Hello  {{Session::get('name')}},</strong></h4>
+        <h4 class="secondary"><strong>Your Order No. {{Session::get('orderNo')}} is as follows;</strong></h4>
 
     @include('beautymail::templates.ark.contentEnd')
 
@@ -56,6 +57,20 @@
                 </tr>
               </tbody>
             </table>
+
+    @include('beautymail::templates.ark.contentEnd')
+
+     @include('beautymail::templates.ark.contentStart')
+
+        <h4 class="secondary" style="text-align: center;"><strong>Thank You</strong></h4>
+        <p style="text-align: center;">&copy;
+          <?php
+            date_default_timezone_set('Africa/Nairobi');
+            $time = date("y");
+            echo $time;
+          ?>
+           PRODIGY HEALTHCARE 
+        </p>
 
     @include('beautymail::templates.ark.contentEnd')
 
