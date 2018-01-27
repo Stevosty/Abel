@@ -343,6 +343,12 @@ class CartController extends Controller
 
 	      	}
 
+	      	date_default_timezone_set('Africa/Nairobi');
+            $time = date("y");
+		    $orderNo = 'ODR'.$time.'00'.$orderId->id;
+
+		    Session::put('orderNo', $orderNo);
+
 	      	$beautymail = app(Beautymail::class);
 		    $beautymail->send('emails.order', [], function($message)
 		    {
@@ -352,9 +358,7 @@ class CartController extends Controller
 					->subject('Prodigy Heathcare Order');
 		    });
 
-		    $orderNo = 'ODR00'.$orderId;
-
-		    Session::put('orderNo', $orderNo);
+		    
 	      	Session::forget('products');
 			Session::put('count', 0);
 
