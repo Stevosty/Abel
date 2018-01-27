@@ -12,13 +12,14 @@
     @include('beautymail::templates.ark.contentStart')
 
         <h4 class="secondary"><strong>Hello  {{Session::get('name')}},</strong></h4>
+        <br>
         <p class="secondary"><strong>Your order is as follows;</strong></p>
 
     @include('beautymail::templates.ark.contentEnd')
 
     @include('beautymail::templates.ark.contentStart')
 
-		<h3> Order No.: {{Session::get('orderNo')}}</h3>
+		<h3> Order No.: {{Session::get('orderNo')}}</h3><br>
             <table class="table table-hover">
 {{--               <thead>
                 <tr>
