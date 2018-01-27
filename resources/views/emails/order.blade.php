@@ -61,7 +61,6 @@
 
     @include('beautymail::templates.ark.contentEnd')
 
-     @include('beautymail::templates.ark.contentStart')
 
         <h4 class="secondary" style="text-align: center;"><strong>Thank You</strong></h4>
         <p style="text-align: center;">&copy;
@@ -73,6 +72,6 @@
            PRODIGY HEALTHCARE 
         </p>
 
-    @include('beautymail::templates.ark.contentEnd')
+    
 
 @stop
