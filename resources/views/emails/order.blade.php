@@ -12,7 +12,8 @@
     @include('beautymail::templates.ark.contentStart')
 
         <h4 class="secondary"><strong>Hello  {{Session::get('name')}},</strong></h4>
-        <h4 class="secondary"><strong>Your Order No. {{Session::get('orderNo')}} is as follows;</strong></h4>
+        <p class="secondary"><strong>Your order is as follows;</strong></p>
+        <h3> Order No.: {{Session::get('orderNo')}}</h3>
 
     @include('beautymail::templates.ark.contentEnd')
 
@@ -66,7 +67,7 @@
         <p style="text-align: center;">&copy;
           <?php
             date_default_timezone_set('Africa/Nairobi');
-            $time = date("y");
+            $time = date("Y");
             echo $time;
           ?>
            PRODIGY HEALTHCARE 
