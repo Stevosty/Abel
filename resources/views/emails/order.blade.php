@@ -19,7 +19,7 @@
 
     @include('beautymail::templates.ark.contentStart')
 
-		<h3> Order No.: {{Session::get('orderNo')}}</h3><br>
+		<p> Order No.: {{Session::get('orderNo')}}</p>
             <table class="table table-hover">
 {{--               <thead>
                 <tr>
@@ -52,7 +52,7 @@
                 	<td>
                 		<span style="float: right;"><strong > Order Total:</strong>Ksh. {{number_format(Session::get('subTotal'), 2)}} </span>
                     	<br><span style="float: right;"><strong > VAT:</strong>Ksh. {{number_format(Session::get('tax'), 2)}} </span>
-                    	<br><span style="float: right;"><strong > Order Total + VAT:</strong>Ksh. {{number_format(Session::get('total'), 2)}}</span>
+                    	<br><span style="float: right;"><strong > Total + VAT:</strong>Ksh. {{number_format(Session::get('total'), 2)}}</span>
                     	<br><br>
                   	</td>
                 </tr>
