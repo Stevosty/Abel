@@ -11,7 +11,7 @@
 
     @include('beautymail::templates.ark.contentStart')
 
-        <h4 class="secondary"><strong>Order No. </strong></h4>
+        <h4 class="secondary"><strong>Order No. {{Session::get('orderNo')}}</strong></h4>
 
     @include('beautymail::templates.ark.contentEnd')
 
@@ -45,10 +45,17 @@
                 
                 @endforeach
                 <tr>
+                	<td></td>
                 	<td>
-                		<span style="float: right;"><strong > Order Total:</strong> {{number_format(Session::get('sub_total'), 2)}} </span>
-                    	<br><span style="float: right;"><strong > VAT:</strong> {{number_format(Session::get('vat'), 2)}} </span>
-                    	<br><span style="float: right;"><strong > Order Total + VAT:</strong> {{number_format(Session::get('total'), 2)}}</span>
+                		<span style="float: right;"><strong > Order Total:</strong></span><br>
+                		<span style="float: right;"><strong > VAT:</strong> </span><br>
+                		<span style="float: right;"><strong > Order Total + VAT:</strong></span> 
+
+                	</td>
+                	<td>
+                		<span style="float: right;">Ksh. {{number_format(Session::get('subTotal'), 2)}} </span><br>
+                		<span style="float: right;">Ksh. {{number_format(Session::get('tax'), 2)}} </span><br>
+                		<span style="float: right;">Ksh. {{number_format(Session::get('total'), 2)}}</span>
                     	<br><br>
                   	</td>
                 </tr>

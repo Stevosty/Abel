@@ -351,7 +351,10 @@ class CartController extends Controller
 					->to('munene02@gmail.com', 'john doe')
 					->subject('Prodigy Heathcare Order');
 		    });
-
+		    date_default_timezone_set('Africa/Nairobi');
+            $time = date("y");
+		    $orderNo = 'ODR'.$time.'00'.$orderId;
+		    Session::put('orderNo', $orderNo);
 	      	Session::forget('products');
 			Session::put('count', 0);
 
