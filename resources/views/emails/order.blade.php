@@ -35,30 +35,33 @@
                 </tr>
               </thead> --}}
               <tbody>
-              @foreach(Session::get('items') as $item)
+              	@foreach(Session::get('items') as $item)
                 <tr>
                   <td>
                   	ODR_
 					<?php date_default_timezone_set('Africa/Nairobi'); $time = date("y"); echo $time; ?>_
-                  	{{ $order->id }}</td>
+                  	{{-- {{ $item['id'] }} --}}</td>
                   <td>
                   	<img src="{{ asset($item['image']) }}" height="150" width="150">
                   </td>
                   <td> 
-                    @foreach($order->item as $item)
-                        <big style="color:#800088;">{{$loop->iteration}}. {{$item->size->product->product}}</big>
-                        <br><strong> Qty:</strong> {{$item->quantity}} 
-                        <br><strong> Pack:</strong> {{$item->size->size}} @ {{number_format($item->size->price,2)}} 
-                        <br><strong> Sub Total:</strong> {{number_format($item->min_total, 2)}} 
+                    
+                        <big style="color:#800088;">{{$item['product'] }}</big>
+                        <br><strong> Qty:</strong> {{$item['quantity'] }} 
+                        <br><strong> Pack:</strong> {{$item['size'] }} @ {{number_format($item['price'] ,2)}} 
+                        <br><strong> Sub Total:</strong> {{number_format($item['min_total'] , 2)}} 
                         <br><br>
-                    @endforeach
-                    <span style="float: right;"><strong > Order Total:</strong> {{number_format($order->sub_total, 2)}} </span>
-                    <br><span style="float: right;"><strong > VAT:</strong> {{number_format($order->vat, 2)}} </span>
-                    <br><span style="float: right;"><strong > Order Total + VAT:</strong> {{number_format($order->total, 2)}}</span>
-                    <br><br>
                   </td>
                 </tr>
-              @endforeach
+                <tr>
+                	<td>
+                		<span style="float: right;"><strong > Order Total:</strong> {{number_format(Session::get('sub_total'), 2)}} </span>
+                    	<br><span style="float: right;"><strong > VAT:</strong> {{number_format(Session::get('vat'), 2)}} </span>
+                    	<br><span style="float: right;"><strong > Order Total + VAT:</strong> {{number_format(Session::get('total'), 2)}}</span>
+                    	<br><br>
+                  	</td>
+                </tr>
+                @endforeach
               </tbody>
             </table>
 
