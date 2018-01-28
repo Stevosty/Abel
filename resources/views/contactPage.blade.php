@@ -66,7 +66,7 @@
                                 <div class="column mcb-column one-second column_column">
                                     <div class="column_attr" >
                                         <h3>Enquiry Form</h3>
-                                        <form method="POST" action="/contactForm">{{ csrf_field() }}
+                                        <form method="POST" action="/contactForm" id="contactform">{{ csrf_field() }}
                                                 <div class="column one-second">
                                                     <input placeholder="Your name" type="text" name="name" id="name" size="40" aria-required="true" aria-invalid="false" />
                                                 </div>
@@ -80,7 +80,7 @@
                                                     <textarea placeholder="Message" name="body" id="body" style="width:100%;" rows="10" aria-invalid="false"></textarea>
                                                 </div>
                                                 <div class="column one">
-                                                    <input type="button" value="Send A Message" id="submit">
+                                                    <input type="submit" value="Send A Message" id="submit">
                                                 </div>
                                             </form>
                                     </div>

@@ -13,6 +13,7 @@
     @include('beautymail::templates.ark.contentStart')
 
 		<p> From: {{Session::get('name')}}<br><br>
+      Email: {{Session::get('email')}}<br><br>
       Subject: {{Session::get('subject')}}<br><br>
      Message: {{Session::get('body')}}
 
