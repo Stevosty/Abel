@@ -8,6 +8,7 @@ use App\Slider;
 use App\Content;
 use Session;
 use Snowfire\Beautymail\Beautymail;
+use Softon\SweetAlert\Facades\SWAL;
 
 class PageController extends Controller
 {
