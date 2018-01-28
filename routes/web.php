@@ -19,6 +19,7 @@ Route::get('/dialysis', 'PageController@dialysisPage');
 Route::get('/pharmacy', 'PageController@pharmacyPage');
 Route::get('/about', 'PageController@aboutPage');
 Route::get('/contact', 'PageController@contactPage');
+Route::post('/contactForm', 'PageController@contactForm');
 
 Route::get('/cart/{size}/{quantity}', 'CartController@add')->middleware('web');
 Route::post('/cart', 'CartController@add')->middleware('web');

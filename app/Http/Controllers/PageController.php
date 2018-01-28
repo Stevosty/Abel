@@ -7,6 +7,7 @@ use App\Product;
 use App\Slider;
 use App\Content;
 use Session;
+use Snowfire\Beautymail\Beautymail;
 
 class PageController extends Controller
 {
@@ -132,6 +133,26 @@ class PageController extends Controller
         $info = Content::where('title','=','contact')->first();
 
         return view('contactPage', compact('info'));
+    }
+
+    public function contactForm(Request $request)
+    {
+            Session::put('name', $request->name);
+            Session::put('email', $request->email);
+            Session::put('subject', $request->subject);
+            Session::put('body', $request->body);
+
+            $beautymail = app(Beautymail::class);
+            $beautymail->send('emails.contact', [], function($message) use ($request)
+            {
+                $message
+                    ->from($request->email)
+                    ->to('info@prodigyhealthcare.co.ke')
+                    ->subject('Website Enquiry - '.$request->subject);
+            });
+
+            SWAL::message('Enquiry Submitted', 'Your enquiry was submitted successfully, we will get back to you.','success',['timer'=>4000]);
+            return redirect('/');
     }
 
 

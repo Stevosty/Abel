@@ -50,9 +50,9 @@
                 	<td></td>
                 	<td></td>
                 	<td>
-                		<span "><strong > Order Total:</strong>Ksh. {{number_format(Session::get('subTotal'), 2)}} </span>
-                    	<br><span "><strong > VAT:</strong>Ksh. {{number_format(Session::get('tax'), 2)}} </span>
-                    	<br><span "><strong > Total + VAT:</strong>Ksh. {{number_format(Session::get('total'), 2)}}</span>
+                		<strong > Order Total:</strong>Ksh. <span style="float: right;">{{number_format(Session::get('subTotal'), 2)}} </span>
+                    	<br><strong > VAT:</strong>Ksh. <span style="float: right;">{{number_format(Session::get('tax'), 2)}} </span>
+                    	<br><strong > Total + VAT:</strong>Ksh. <span style="float: right;">{{number_format(Session::get('total'), 2)}}</span>
                     	<br><br>
                   	</td>
                 </tr>

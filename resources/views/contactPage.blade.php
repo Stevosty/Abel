@@ -66,7 +66,7 @@
                                 <div class="column mcb-column one-second column_column">
                                     <div class="column_attr" >
                                         <h3>Enquiry Form</h3>
-                                        <form id="contactform">{{ csrf_field() }}
+                                        <form method="POST" action="/contactForm">{{ csrf_field() }}
                                                 <div class="column one-second">
                                                     <input placeholder="Your name" type="text" name="name" id="name" size="40" aria-required="true" aria-invalid="false" />
                                                 </div>
