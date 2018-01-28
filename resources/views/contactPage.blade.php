@@ -80,7 +80,7 @@
                                                     <textarea placeholder="Message" name="body" id="body" style="width:100%;" rows="10" aria-invalid="false"></textarea>
                                                 </div>
                                                 <div class="column one">
-                                                    <input type="button" value="Send A Message" id="submit" onClick="return check_values();">
+                                                    <input type="button" value="Send A Message" id="submit">
                                                 </div>
                                             </form>
                                     </div>
