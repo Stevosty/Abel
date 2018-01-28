@@ -356,7 +356,7 @@ class CartController extends Controller
 		        $message
 					->from('info@prodigyhealthcare.co.ke')
 					->to($request->email, $request->firstname)
-					->subject('Prodigy Heathcare Order');
+					->subject('Prodigy Healthcare Order');
 		    });
 
 		    
