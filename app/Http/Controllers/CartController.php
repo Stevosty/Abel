@@ -354,7 +354,7 @@ class CartController extends Controller
 		    $beautymail->send('emails.order', [], function($message)
 		    {
 		        $message
-					->from('orders@crysrockeng.com')
+					->from('info@prodigyhealthcare.co.ke')
 					->to('munene02@gmail.com', 'john doe')
 					->subject('Prodigy Heathcare Order');
 		    });
