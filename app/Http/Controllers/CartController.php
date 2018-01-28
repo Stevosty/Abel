@@ -351,11 +351,11 @@ class CartController extends Controller
 		    Session::put('name', $buyerId->name);
 
 	      	$beautymail = app(Beautymail::class);
-		    $beautymail->send('emails.order', [], function($message)
+		    $beautymail->send('emails.order', [], function($message) use ($request)
 		    {
 		        $message
 					->from('info@prodigyhealthcare.co.ke')
-					->to('munene02@gmail.com', 'john doe')
+					->to($request->email, $request->firstname)
 					->subject('Prodigy Heathcare Order');
 		    });
 
