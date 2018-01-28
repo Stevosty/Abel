@@ -147,7 +147,7 @@ class PageController extends Controller
             $beautymail->send('emails.contact', [], function($message) use ($request)
             {
                 $message
-                    ->from('info@prodigyhealthcare.co.ke')
+                    ->from('website@prodigyhealthcare.co.ke')
                     ->to('info@prodigyhealthcare.co.ke')
                     ->subject('Website Enquiry - '.$request->subject);
             });
