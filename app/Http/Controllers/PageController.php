@@ -148,9 +148,11 @@ class PageController extends Controller
             {
                 $message
                     ->from('website@prodigyhealthcare.co.ke')
-                    ->to('info@prodigyhealthcare.co.ke')
+                    ->to('info@prodigyhealthcare.co.ke', 'Prodigy Healthcare')
                     ->subject('Website Enquiry - '.$request->subject);
             });
+
+            //return Session::all();
 
             SWAL::message('Enquiry Submitted', 'Your enquiry was submitted successfully, we will get back to you.','success',['timer'=>4000]);
             return redirect('/');
