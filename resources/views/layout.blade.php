@@ -38,8 +38,6 @@
 
 </head>
 
-{{-- <body class="color-custom style-default layout-full-width nice-scroll-on mobile-tb-left button-flat if-overlay if-border-hide no-content-padding header-classic minimalist-header sticky-header sticky-white ab-show subheader-both-center menuo-right menuo-no-borders footer-copy-center"> --}}
-
 <body class="single single-product woocommerce woocommerce-page color-custom style-default layout-full-width nice-scroll-on mobile-tb-left button-flat if-overlay if-border-hide no-content-padding header-classic minimalist-header sticky-header sticky-white ab-show subheader-both-center menuo-right menuo-no-borders footer-copy-center">
 
     <div id="Wrapper">
