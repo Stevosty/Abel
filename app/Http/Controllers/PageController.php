@@ -18,7 +18,7 @@ class PageController extends Controller
 
     	$info = Content::where('title','=','home')->first();
 
-    	$products = Product::with('size', 'group')->where([['type','=','latest'],['status','=','no']])->orderBy('id','asc')->limit(8)->get();
+    	$products = Product::with('size', 'group')->where([['type','=','latest'],['status','=','no']])->orderBy('id','asc')->limit(12)->get();
 
     	//return $info;
 
